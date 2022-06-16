@@ -1,0 +1,21 @@
+{
+  "name": "fullstack-portfolio-sanity",
+  "version": "1.0.0",
+  "description": "Using [sanity.io](https://www.sanity.io/) for backend functionality",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd ./frontend_react && npm start",
+    "build": "cd ./frontend_react && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ikramdeveloper/sanity-react-portoflio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ikramdeveloper/sanity-react-portoflio/issues"
+  },
+  "homepage": "https://github.com/ikramdeveloper/sanity-react-portoflio#readme"
+}
