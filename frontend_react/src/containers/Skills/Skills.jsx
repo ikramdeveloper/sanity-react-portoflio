@@ -1,29 +1,29 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import ReactTooltip from "react-tooltip";
+// import ReactTooltip from "react-tooltip";
 import { AppWrap, MotionWrap } from "../../wrapper";
 import { urlFor, client } from "../../client";
 import "./Skills.scss";
 
 const Skills = () => {
   const [skills, setSkills] = useState([]);
-  const [experiences, setExperiences] = useState([]);
+  // const [experiences, setExperiences] = useState([]);
 
   useEffect(() => {
-    const expQuery = "*[_type=='experience']";
+    // const expQuery = "*[_type=='experience']";
     const skillsQuery = "*[_type=='skills']";
 
     client.fetch(skillsQuery).then((data) => {
       setSkills(data);
     });
 
-    client.fetch(expQuery).then((data) => {
-      setExperiences(data);
-    });
+    // client.fetch(expQuery).then((data) => {
+    //   setExperiences(data);
+    // });
   }, []);
   return (
     <>
-      <h2 className="head-text">Skills &amp; Experiences</h2>
+      <h2 className="head-text">Skills</h2>
 
       <div className="app__skills-container">
         <motion.div className="app__skills-list">
@@ -38,14 +38,18 @@ const Skills = () => {
                 className="app__flex"
                 style={{ backgroundColor: skill.bgColor }}
               >
-                <img src={urlFor(skill.icon)} alt={skill.name} />
+                <img
+                  src={urlFor(skill.icon)}
+                  alt={skill.name}
+                  className={skill.name === "MongoDB" ? "mongo" : ""}
+                />
               </div>
               <p className="p-text">{skill.name}</p>
             </motion.div>
           ))}
         </motion.div>
 
-        <div className="app__skills-exp">
+        {/* <div className="app__skills-exp">
           {experiences.map((experience) => (
             <motion.div className="app__skills-exp-item" key={experience.year}>
               <div className="app__skills-exp-year">
@@ -77,7 +81,7 @@ const Skills = () => {
               </motion.div>
             </motion.div>
           ))}
-        </div>
+        </div> */}
       </div>
     </>
   );

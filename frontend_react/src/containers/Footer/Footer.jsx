@@ -18,6 +18,11 @@ const Footer = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    if (!formData.name || !formData.email || !formData.message) {
+      alert("You need to fill all fields");
+      return;
+    }
+
     setIsLoading(true);
 
     const contact = {
@@ -48,7 +53,7 @@ const Footer = () => {
         <div className="app__footer-card">
           <img src={images.mobile} alt="mobile" />
           <a href="tel:+923034927390" className="p-text">
-            +92-303-492-7390
+            +92-335-004-4927
           </a>
         </div>
       </div>
@@ -63,6 +68,7 @@ const Footer = () => {
               value={formData.name}
               placeholder="Your Name"
               onChange={handleChange}
+              required
             />
           </div>
           <div className="app__flex">
@@ -73,6 +79,7 @@ const Footer = () => {
               value={formData.email}
               placeholder="Your Email"
               onChange={handleChange}
+              required
             />
           </div>
           <div>
@@ -82,6 +89,7 @@ const Footer = () => {
               placeholder="Your Message"
               value={formData.message}
               onChange={handleChange}
+              required
             />
           </div>
           <button type="submit" className="p-text">
