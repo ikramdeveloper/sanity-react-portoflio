@@ -59,9 +59,14 @@ const Header = () => {
         className="app__header-circles"
       >
         {[images.react, images.javascript, images.node].map((circle) => (
-          <div className="circle-cmp app__flex" key={circle}>
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            transition={{ duration: 0.5, type: "tween" }}
+            className="circle-cmp app__flex"
+            key={circle}
+          >
             <img src={circle} alt="circle" />
-          </div>
+          </motion.div>
         ))}
       </motion.div>
     </div>

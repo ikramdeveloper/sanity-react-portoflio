@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import Zoom from "react-medium-image-zoom";
 import { MotionWrap, AppWrap } from "../../wrapper";
 import { urlFor, client } from "../../client";
+import "react-medium-image-zoom/dist/styles.css";
 import "./About.scss";
 
 const About = () => {
@@ -27,7 +29,9 @@ const About = () => {
             transition={{ duration: 0.5, type: "tween" }}
             className="app__profile-item"
           >
-            <img src={urlFor(about.imgurl)} alt={about.title} />
+            <Zoom zoomMargin={14}>
+              <img src={urlFor(about.imgurl)} alt={about.title} width="100%" />
+            </Zoom>
             <h2 className="bold-text" style={{ marginTop: "20px" }}>
               {about.title}
             </h2>
